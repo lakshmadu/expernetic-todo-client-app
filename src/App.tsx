@@ -6,6 +6,8 @@ import { TaskModelUtil } from './shared/task-model-utill';
 import { Button, Form, Input, Modal, Space, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
+const REACT_API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function App() {
   const [todos, setTodos] = useState<Array<Todo>>([]);
   let [taskCount, setCount] = useState(0);
@@ -131,8 +133,7 @@ const getTodoById = (id: number): Promise<Todo> => {
   };
 
   return new Promise((resolve, reject) => {
-    const url = process.env.REACT_API_BASE_URL || "";
-    fetch(`http://localhost:5195/api/task/${id}`, options)
+    fetch(`${REACT_API_BASE_URL}/api/task/${id}`, options)
       .then((response) => response.json())
       .then((data) => {
         resolve(TaskModelUtil.mapRawTodoToTodo(data));
@@ -154,8 +155,7 @@ const fetchTodos = (): Promise<any> => {
   };
 
   return new Promise((resolve, reject) => {
-    const url = process.env.REACT_API_BASE_URL || "";
-    fetch("http://localhost:5195/api/task", options)
+    fetch(`${REACT_API_BASE_URL}/api/task`, options)
       .then((response) => response.json())
       .then((data) => {        
         resolve(TaskModelUtil.mapRawTodosToTodos(data));
@@ -181,8 +181,7 @@ const updateTodo = (id: number, todo: SaveTodo): Promise<any> => {
   };
 
   return new Promise((resolve, reject) => {
-    //const url = process.env.REACT_API_BASE_URL || "";
-    fetch(`http://localhost:5195/api/task/${id}`, options)
+    fetch(`${REACT_API_BASE_URL}/api/task/${id}`, options)
       .then((data) => {
         resolve(data);
       })
@@ -203,7 +202,7 @@ const deleteTodo = (id?: number): Promise<boolean> => {
   };
 
   return new Promise((resolve, reject) => {
-    fetch(`http://localhost:5195/api/task/${id}`, options)
+    fetch(`${REACT_API_BASE_URL}/api/task/${id}`, options)
       .then(() => {
         resolve(true);
       })
