@@ -16,6 +16,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 * note: you should be able to run the react app in the localhost:3000 port. If not you will face the Cors error. For more detail read the readme.md file of https://github.com/lakshmadu/expernetic-todo-api project
 
+* if you need to change Back end API url, then checkout .env file and change this code: REACT_APP_API_BASE_URL = http://localhost:5195
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
