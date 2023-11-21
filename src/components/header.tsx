@@ -3,7 +3,7 @@ import { Form, Input, Modal } from 'antd';
 import { useState } from "react";
 import { SaveTodo, Todo } from "../shared/todo";
 
-
+const REACT_API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 interface HeaderProps {
   onClick: () => void;
@@ -84,7 +84,7 @@ const saveTodo = (todo: SaveTodo): Promise<any> => {
 
   return new Promise((resolve, reject) => {
     //const url = process.env.REACT_API_BASE_URL || "";
-    fetch("http://localhost:5195/api/task", options)
+    fetch(`${REACT_API_BASE_URL}/api/task`, options)
       .then((data) => {
         resolve(data);
       })
