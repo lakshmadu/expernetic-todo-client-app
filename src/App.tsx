@@ -7,7 +7,6 @@ import { Button, Form, Input, Modal, Space, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
 function App() {
-
   const [todos, setTodos] = useState<Array<Todo>>([]);
   let [taskCount, setCount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);

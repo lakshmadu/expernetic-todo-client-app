@@ -1,3 +1,4 @@
+import { convertToReadableFormat } from "./date-time-format-utill";
 import { Todo } from "./todo";
 
 export class TaskModelUtil {
@@ -7,7 +8,7 @@ export class TaskModelUtil {
         id: rawTodo.id || "",
         name: rawTodo.name || "",
         description: rawTodo.description || "",
-        datetime: rawTodo.created_date_time || "",
+        datetime: convertToReadableFormat(rawTodo.created_date_time).toString() || "",
         isComplete: rawTodo.is_complete || false,
     };
     };

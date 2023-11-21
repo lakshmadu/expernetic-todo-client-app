@@ -7,6 +7,6 @@ export interface Todo {
     id: number;
     name: string;
     description: string;
-    datetime?: Date;
+    datetime?: string;
     isComplete?: boolean;
 }
